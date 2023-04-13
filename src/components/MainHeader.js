@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
 import "../Style.css"
-import logoImage from '../hit_logo.svg';
 
 
 
