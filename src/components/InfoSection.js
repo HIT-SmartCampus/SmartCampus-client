@@ -6,15 +6,15 @@ import campus from '../assets/campus.jpg'
 const InfoSection = () => {
   return (
     <MainContainer>
-        <CustomImg src={campus} alt="Smart Campus screnery"/>
-        <TextArea>
+      <CustomImg src={campus} alt="Smart Campus scenery" />
+      <TextArea>
         <h2>Smart Campus</h2>
-            <p>is an innovative approach to a common place based on optimal use of resources while maximizing the comfort of living.
-                At the base of the smart campus is a detection, information processing and decision-making system based on adaptive AI.
-                The results of system activity are provided to users according to their roles on campus.
-                In more advanced stages, the system will know how to make decisions and perform preventive actions while notifying the relevant officials.
-            </p>
-        </TextArea> 
+        <p>is an innovative approach to a common place based on optimal use of resources while maximizing the comfort of living.
+          At the base of the smart campus is a detection, information processing and decision-making system based on adaptive AI.
+          The results of system activity are provided to users according to their roles on campus.
+          In more advanced stages, the system will know how to make decisions and perform preventive actions while notifying the relevant officials.
+        </p>
+      </TextArea>
     </MainContainer>
   )
 }
@@ -28,15 +28,10 @@ const CustomImg = styled.img`
 `
 
 const TextArea = styled.div`
-flex-grow: 1;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-text-align: center;
   p {
     margin: 0;
     font-size: 1.5em;
-    line-height: 1.5;
+    line-height: 2;
   }
 
   h2 {

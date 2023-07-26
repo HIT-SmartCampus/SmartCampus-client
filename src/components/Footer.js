@@ -1,54 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Footer = () => {
   return (
-    <>
-      <Container>
-      <Separator />
-      <br/>
-      <br/>
-
-        <Quote>
-          An innovative approach to optimal resource use and maximal comfort.
-        </Quote>
-        <Link href="https://www.hit.ac.il/">HIT College Site</Link>
-        <p>&copy; 2023 Smart Campus Project</p>
-      </Container>
-    </>
+    <FooterContainer>
+      <Quote>
+        An innovative approach to optimal resource use and maximal comfort.
+      </Quote>
+      <Link href="https://www.hit.ac.il/">HIT College Site</Link>
+      <Copyright>&copy; 2023 Smart Campus Project</Copyright>
+    </FooterContainer>
   );
 };
 
 export default Footer;
 
-const Container = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  margin-top: 64px;
-  width: 100%;
+const FooterContainer = styled.footer`
+  background-color: #000; /* Set to black to match the header */
+  color: #fff;
+  padding: 16px;
+  text-align: center;
 `;
 
 const Quote = styled.p`
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 24px;
-`;
-
-const Separator = styled.div`
-  height: 1px;
-  width: 100%;
-  background-color: #cccccc;
+  font-size: 18px;
+  margin-bottom: 12px;
 `;
 
 const Link = styled.a`
-  font-size: 16px;
-  color: #000000;
+  font-size: 14px;
+  color: #fff;
   text-decoration: underline;
   &:hover {
     opacity: 0.8;
   }
+`;
+
+const Copyright = styled.p`
+  font-size: 12px;
 `;

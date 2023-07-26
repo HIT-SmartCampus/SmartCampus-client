@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import IFrameTemplate from '../components/IFrameTemplate';
-import WaterIcon from '../assets/cardWater.png';
+import CleanlinessIcon from '../assets/cardCleanliness.png'; // Replace this with the cleanliness icon image
 
 const Container = styled.div`
   display: flex;
@@ -69,13 +69,14 @@ const AnimationText = styled.p`
   animation: ${fadeInUp} 1s ease;
 `;
 
-const WaterIconImage = styled.img`
+const CleanlinessIconImage = styled.img`
   width: 100px;
   height: 100px;
   margin-left: 1rem; /* Move the icon to the right */
   margin-right: 1rem; /* Space between icon and text */
   animation: fadeInRight 1s ease;
 `;
+
 const IframeContainer = styled.div`
   width: 100%;
   height: 500px;
@@ -84,35 +85,26 @@ const IframeContainer = styled.div`
   animation: ${fadeInUp} 1s ease;
 `;
 
-const OptimizingWaterConsumptionPage = () => {
+const IncreasingCampusCleanlinessPage = () => {
   return (
     <Container>
-      <PageTitle>Optimizing Water Consumption</PageTitle>
+      <PageTitle>Increasing Campus Cleanliness</PageTitle>
 
-
+      {/* First animation container */}
       <AnimationContainer>
         <AnimationText>
-        By using IoT devices, you can optimize your water consumption and reduce waste. 
-        Check out the real-time data on this ThingsBoard dashboard to see how you can make a difference.
+          Utilize IoT sensors to enhance cleanliness and maintenance on campus. 
+          Monitor real-time data to keep the environment clean and conducive for everyone.
         </AnimationText>
-        <WaterIconImage src={WaterIcon} alt="Water Icon" />
-
+        <CleanlinessIconImage src={CleanlinessIcon} alt="Cleanliness Icon" />
       </AnimationContainer>
 
-      <AnimationContainer>
-        <WaterIconImage src={WaterIcon} alt="Water Icon" />
-        <AnimationText>
-          Our smart IoT devices continuously monitor water usage and provide real-time insights to help you conserve water effectively.
-        </AnimationText>
-      </AnimationContainer>
-
-      
       {/* Real-Time Dashboard */}
       <IframeContainer>
-        <IFrameTemplate title='WaterDashboard' src="https://app.hittest.smarty.camp/dashboard/9ff093c0-28cb-11ee-87d4-cff6bc55cfcd?publicId=25d84fd0-5912-11ed-804e-411dde1247cf" />
+        <IFrameTemplate title='CleanlinessDashboard' src="https://your-real-time-dashboard-url.com" />
       </IframeContainer>
     </Container>
   );
 };
 
-export default OptimizingWaterConsumptionPage;
+export default IncreasingCampusCleanlinessPage;

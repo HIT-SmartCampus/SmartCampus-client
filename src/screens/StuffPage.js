@@ -7,23 +7,23 @@ function LecturersAndTeams() {
         <ul style={styles.cardList}>
           <li>
             <div style={styles.card}>
-              <img src="https://via.placeholder.com/150" alt="Lecturer" style={styles.cardImg} />
-              <h3 style={styles.cardTitle}>John Doe</h3>
-              <p style={styles.cardText}>Computer Science</p>
+              <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw4HBggQBwgICA4JBgoGCwoKBw8ICQgKIB0iIiAdHx8kHSggJBoxMx8TJjEhJSkrLi4uHh8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAJYAlgMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAAAwQFAQIGB//EADYQAQACAQICBQkGBwAAAAAAAAABAgMEERIiBRMhMlEjMUFCUmFxcpFigYKhsdEVM3OSouHx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AP2QAAAAAAAAAAAAAAAAAAAAAAAAAAmdo7exX1WrrgjbvWnzV8PizM2ovmnylp+WOWsA1L6vHSe3JE+6vMj/AIhj39f+xlANvHqseSeXJX4Ty/qlfPp8GrvhmNrcUezbu/6BsiLT6iuevLO0x56z3oSgAAAAAAAAAAIdXm6jDMx555ax9pMzOlcm+asezTi/FIKdpm0zMzMzPNMy4AAAAAPWLJOK8TSdpj/Jt4rxlx1mPWrxfBhNLorJvTJE+rato+//AIC8AAAAAAAAAAxtfO+ryfhr+UNlja+NtXk+av6QCAAAAAABd6Kny9/fi4vzhSXOio8vb+lb9YBqAAAAAAAAAAMTV5Iyam80neJ4dp+7Zs5Y3xX29NLbfRggAAAAAALfRuSKZ54p2468EfNuqPeGN8uPb03rt9QboAAAAAAAAADH1unnDlnaJ4bW4qz4e5sOXrF6TFo3i1eGQYA9ZadXktE+rbheQAAAAF3o7TzOSL2iYivd39NkGkxddnrExvEc9vlbUdkdgAAAAAAAAAAAAKHSWm3jjpHmrzx9nxZz6CY3iYnt3rwywL14bzE+ra1QcAABLpKdZqccT7fFP3doNLQafqcczaOa/n91fBZAAAAAAAAAAJnhid5iNvPMqebpClN+ribz492oLiLLqaYt+K8TPs15rMrNq75d97TWPZry1Qgv5ekpn+VSI99v2Ub24rTMzvNrWtPzOAAAD3iyTivE023jxh4AaOLpLfbrabe+n7LeLPTL3L1t7u7b6MMjsnsB9AMjDrr49t5448LfuvYNdTLtvPBPhbu/UFkAAABW1Osrh3ivPbwjux8Uev1XVxw452tNeafYqzASZs980+UtM+FY7tUYAAAAAAAAAAAAAnwau+GY2nij2bd1p6fU1zx2Twz6aT3mK7E8MxMTMTHNEwDfFbRarr6TFtotXz/ajxdBkXtN7TNp3m1t5cAAAAAAAAAAAAAAAAAHazMd2Zj0djgA/9k=" alt="Lecturer" style={styles.cardImg} />
+              <h3 style={styles.cardTitle}>Mark Israel</h3>
+              <p style={styles.cardText}>Project Manager</p>
             </div>
           </li>
           <li>
             <div style={styles.card}>
-              <img src="https://via.placeholder.com/150" alt="Lecturer" style={styles.cardImg} />
-              <h3 style={styles.cardTitle}>Jane Doe</h3>
-              <p style={styles.cardText}>Information Systems</p>
+              <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw4HBggQBwgICA4JBgoGCwoKBw8ICQgKIB0iIiAdHx8kHSggJBoxMx8TJjEhJSkrLi4uHh8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAJYAlgMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAAAwQFAQIGB//EADYQAQACAQICBQkGBwAAAAAAAAABAgMEERIiBRMhMlEjMUFCUmFxcpFigYKhsdEVM3OSouHx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AP2QAAAAAAAAAAAAAAAAAAAAAAAAAAmdo7exX1WrrgjbvWnzV8PizM2ovmnylp+WOWsA1L6vHSe3JE+6vMj/AIhj39f+xlANvHqseSeXJX4Ty/qlfPp8GrvhmNrcUezbu/6BsiLT6iuevLO0x56z3oSgAAAAAAAAAAIdXm6jDMx555ax9pMzOlcm+asezTi/FIKdpm0zMzMzPNMy4AAAAAPWLJOK8TSdpj/Jt4rxlx1mPWrxfBhNLorJvTJE+rato+//AIC8AAAAAAAAAAxtfO+ryfhr+UNlja+NtXk+av6QCAAAAAABd6Kny9/fi4vzhSXOio8vb+lb9YBqAAAAAAAAAAMTV5Iyam80neJ4dp+7Zs5Y3xX29NLbfRggAAAAAALfRuSKZ54p2468EfNuqPeGN8uPb03rt9QboAAAAAAAAADH1unnDlnaJ4bW4qz4e5sOXrF6TFo3i1eGQYA9ZadXktE+rbheQAAAAF3o7TzOSL2iYivd39NkGkxddnrExvEc9vlbUdkdgAAAAAAAAAAAAKHSWm3jjpHmrzx9nxZz6CY3iYnt3rwywL14bzE+ra1QcAABLpKdZqccT7fFP3doNLQafqcczaOa/n91fBZAAAAAAAAAAJnhid5iNvPMqebpClN+ribz492oLiLLqaYt+K8TPs15rMrNq75d97TWPZry1Qgv5ekpn+VSI99v2Ub24rTMzvNrWtPzOAAAD3iyTivE023jxh4AaOLpLfbrabe+n7LeLPTL3L1t7u7b6MMjsnsB9AMjDrr49t5448LfuvYNdTLtvPBPhbu/UFkAAABW1Osrh3ivPbwjux8Uev1XVxw452tNeafYqzASZs980+UtM+FY7tUYAAAAAAAAAAAAAnwau+GY2nij2bd1p6fU1zx2Twz6aT3mK7E8MxMTMTHNEwDfFbRarr6TFtotXz/ajxdBkXtN7TNp3m1t5cAAAAAAAAAAAAAAAAAHazMd2Zj0djgA/9k=" alt="Lecturer" style={styles.cardImg} />
+              <h3 style={styles.cardTitle}>Ilya Vogman</h3>
+              <p style={styles.cardText}>Lecturer</p>
             </div>
           </li>
           <li>
             <div style={styles.card}>
-              <img src="https://via.placeholder.com/150" alt="Team" style={styles.cardImg} />
-              <h3 style={styles.cardTitle}>Web Development Team</h3>
-              <p style={styles.cardText}>Front-end and back-end developers</p>
+              <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw4HBggQBwgICA4JBgoGCwoKBw8ICQgKIB0iIiAdHx8kHSggJBoxMx8TJjEhJSkrLi4uHh8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAJYAlgMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAAAwQFAQIGB//EADYQAQACAQICBQkGBwAAAAAAAAABAgMEERIiBRMhMlEjMUFCUmFxcpFigYKhsdEVM3OSouHx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AP2QAAAAAAAAAAAAAAAAAAAAAAAAAAmdo7exX1WrrgjbvWnzV8PizM2ovmnylp+WOWsA1L6vHSe3JE+6vMj/AIhj39f+xlANvHqseSeXJX4Ty/qlfPp8GrvhmNrcUezbu/6BsiLT6iuevLO0x56z3oSgAAAAAAAAAAIdXm6jDMx555ax9pMzOlcm+asezTi/FIKdpm0zMzMzPNMy4AAAAAPWLJOK8TSdpj/Jt4rxlx1mPWrxfBhNLorJvTJE+rato+//AIC8AAAAAAAAAAxtfO+ryfhr+UNlja+NtXk+av6QCAAAAAABd6Kny9/fi4vzhSXOio8vb+lb9YBqAAAAAAAAAAMTV5Iyam80neJ4dp+7Zs5Y3xX29NLbfRggAAAAAALfRuSKZ54p2468EfNuqPeGN8uPb03rt9QboAAAAAAAAADH1unnDlnaJ4bW4qz4e5sOXrF6TFo3i1eGQYA9ZadXktE+rbheQAAAAF3o7TzOSL2iYivd39NkGkxddnrExvEc9vlbUdkdgAAAAAAAAAAAAKHSWm3jjpHmrzx9nxZz6CY3iYnt3rwywL14bzE+ra1QcAABLpKdZqccT7fFP3doNLQafqcczaOa/n91fBZAAAAAAAAAAJnhid5iNvPMqebpClN+ribz492oLiLLqaYt+K8TPs15rMrNq75d97TWPZry1Qgv5ekpn+VSI99v2Ub24rTMzvNrWtPzOAAAD3iyTivE023jxh4AaOLpLfbrabe+n7LeLPTL3L1t7u7b6MMjsnsB9AMjDrr49t5448LfuvYNdTLtvPBPhbu/UFkAAABW1Osrh3ivPbwjux8Uev1XVxw452tNeafYqzASZs980+UtM+FY7tUYAAAAAAAAAAAAAnwau+GY2nij2bd1p6fU1zx2Twz6aT3mK7E8MxMTMTHNEwDfFbRarr6TFtotXz/ajxdBkXtN7TNp3m1t5cAAAAAAAAAAAAAAAAAHazMd2Zj0djgA/9k=" alt="Team" style={styles.cardImg} />
+              <h3 style={styles.cardTitle}>NAME</h3>
+              <p style={styles.cardText}>Lecturer</p>
             </div>
           </li>
         </ul>

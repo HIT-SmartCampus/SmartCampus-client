@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import IFrameTemplate from '../components/IFrameTemplate';
-import WaterIcon from '../assets/cardWater.png';
+import ClimateIcon from '../assets/cardClimate.png'; // Replace this with the climate icon image
 
 const Container = styled.div`
   display: flex;
@@ -69,13 +69,14 @@ const AnimationText = styled.p`
   animation: ${fadeInUp} 1s ease;
 `;
 
-const WaterIconImage = styled.img`
+const ClimateIconImage = styled.img`
   width: 100px;
   height: 100px;
   margin-left: 1rem; /* Move the icon to the right */
   margin-right: 1rem; /* Space between icon and text */
   animation: fadeInRight 1s ease;
 `;
+
 const IframeContainer = styled.div`
   width: 100%;
   height: 500px;
@@ -84,35 +85,26 @@ const IframeContainer = styled.div`
   animation: ${fadeInUp} 1s ease;
 `;
 
-const OptimizingWaterConsumptionPage = () => {
+const MicroclimateAndAirQualityPage = () => {
   return (
     <Container>
-      <PageTitle>Optimizing Water Consumption</PageTitle>
+      <PageTitle>Microclimate and Air Quality Monitoring</PageTitle>
 
-
+      {/* First animation container */}
       <AnimationContainer>
         <AnimationText>
-        By using IoT devices, you can optimize your water consumption and reduce waste. 
-        Check out the real-time data on this ThingsBoard dashboard to see how you can make a difference.
+          Using IoT sensors, you can monitor microclimate conditions and air quality in real-time. 
+          Understand environmental changes and take proactive measures to ensure a healthy atmosphere.
         </AnimationText>
-        <WaterIconImage src={WaterIcon} alt="Water Icon" />
-
+        <ClimateIconImage src={ClimateIcon} alt="Climate Icon" />
       </AnimationContainer>
 
-      <AnimationContainer>
-        <WaterIconImage src={WaterIcon} alt="Water Icon" />
-        <AnimationText>
-          Our smart IoT devices continuously monitor water usage and provide real-time insights to help you conserve water effectively.
-        </AnimationText>
-      </AnimationContainer>
-
-      
       {/* Real-Time Dashboard */}
       <IframeContainer>
-        <IFrameTemplate title='WaterDashboard' src="https://app.hittest.smarty.camp/dashboard/9ff093c0-28cb-11ee-87d4-cff6bc55cfcd?publicId=25d84fd0-5912-11ed-804e-411dde1247cf" />
+        <IFrameTemplate title='ClimateDashboard' src="https://your-real-time-dashboard-url.com" />
       </IframeContainer>
     </Container>
   );
 };
 
-export default OptimizingWaterConsumptionPage;
+export default MicroclimateAndAirQualityPage;

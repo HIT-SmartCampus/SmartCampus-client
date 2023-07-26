@@ -151,7 +151,7 @@ const ContactDetailsWrapper = styled.div`
       font-size: 1.2rem;
       transition: all 0.2s ease-in-out;
       &:hover {
-        background: #1E3A8A;
+        background: #000;
       }
     }
   }

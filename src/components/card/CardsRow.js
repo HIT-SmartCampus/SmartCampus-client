@@ -19,14 +19,14 @@ const CardsRow = () =>
           <FaBolt size={64} color="#007FFF" />
         </IconContainer>
         <TextArea>Optimizing Power Consumption</TextArea>
-        <CardFooterButton onClick={() => handleLearnMore('Water')}>Learn More!</CardFooterButton>
+        <CardFooterButton onClick={() => handleLearnMore('power')}>Learn More!</CardFooterButton>
       </Card>
       <Card>
         <IconContainer>
           <FaTemperatureLow size={64} color="#007FFF" />
         </IconContainer>
         <TextArea>Microclimate and Air Quality Monitoring</TextArea>
-        <CardFooterButton onClick={() => handleLearnMore('Water')}>Learn More!</CardFooterButton>
+        <CardFooterButton onClick={() => handleLearnMore('climate')}>Learn More!</CardFooterButton>
       </Card>
       <Card>
         <IconContainer>
@@ -40,21 +40,21 @@ const CardsRow = () =>
           <FaRecycle size={64} color="#007FFF" />
         </IconContainer>
         <TextArea>The Recycling and Garbage Efficiency</TextArea>
-        <CardFooterButton onClick={() => handleLearnMore('Water')}>Learn More!</CardFooterButton>
+        <CardFooterButton onClick={() => handleLearnMore('recycling')}>Learn More!</CardFooterButton>
       </Card>
       <Card>
         <IconContainer>
           <FaTree size={64} color="#007FFF" />
         </IconContainer>
         <TextArea>Micro-climatic Eco-Human Space</TextArea>
-        <CardFooterButton onClick={() => handleLearnMore('Water')}>Learn More!</CardFooterButton>
+        <CardFooterButton onClick={() => handleLearnMore('ecohuman')}>Learn More!</CardFooterButton>
       </Card>
       <Card>
         <IconContainer>
           <FaTrash size={64} color="#007FFF" />
         </IconContainer>
         <TextArea>Increasing campus cleanliness</TextArea>
-        <CardFooterButton onClick={() => handleLearnMore('Water')}>Learn More!</CardFooterButton>
+        <CardFooterButton onClick={() => handleLearnMore('cleanliness')}>Learn More!</CardFooterButton>
       </Card>
     </Container>
   )
