@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+// MainHeader.js
+
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const MainHeader = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const customNavBarRef = useRef();
 
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
@@ -19,9 +23,33 @@ const MainHeader = () => {
     window.location.href = '/';
   };
 
+  const handleMenuItemClick = () => {
+    setShowMenu(false);
+  };
+
+  const handleOutsideMenuClick = (e) => {
+    if (customNavBarRef.current && !customNavBarRef.current.contains(e.target)) {
+      setShowMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideMenuClick);
+    return () => {
+      document.removeEventListener('click', handleOutsideMenuClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    const headerElement = customNavBarRef.current;
+    if (headerElement) {
+      setHeaderHeight(headerElement.offsetHeight);
+    }
+  }, []);
+
   return (
     <Container>
-      <CustomNavBar>
+      <CustomNavBar ref={customNavBarRef} className="header">
         <MenuIcon onClick={handleMenuClick}>
           <FaBars />
         </MenuIcon>
@@ -42,19 +70,27 @@ const MainHeader = () => {
           </UserContainer>
         )}
       </CustomNavBar>
-      <MenuLinks show={showMenu}>
+      <MenuLinks show={showMenu} headerHeight={headerHeight}>
         <MenuList show={showMenu}>
           <MenuListItem>
-            <MenuLinkItem to="/">Home</MenuLinkItem>
+            <MenuLinkItem to="/" onClick={handleMenuItemClick}>
+              Home
+            </MenuLinkItem>
           </MenuListItem>
           <MenuListItem>
-            <MenuLinkItem to="/students">Students</MenuLinkItem>
+            <MenuLinkItem to="/students" onClick={handleMenuItemClick}>
+              Students
+            </MenuLinkItem>
           </MenuListItem>
           <MenuListItem>
-            <MenuLinkItem to="/stuff">Stuff</MenuLinkItem>
+            <MenuLinkItem to="/stuff" onClick={handleMenuItemClick}>
+              Stuff
+            </MenuLinkItem>
           </MenuListItem>
           <MenuListItem>
-            <MenuLinkItem to="/contact">Contact Us</MenuLinkItem>
+            <MenuLinkItem to="/contact" onClick={handleMenuItemClick}>
+              Contact Us
+            </MenuLinkItem>
           </MenuListItem>
         </MenuList>
       </MenuLinks>
@@ -79,6 +115,12 @@ const CustomNavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  padding: 10px;
+  z-index: 1000;
 `;
 
 const Title = styled.h1`
@@ -93,10 +135,6 @@ const Title = styled.h1`
 const MenuIcon = styled.div`
   cursor: pointer;
   font-size: 24px;
-`;
-
-const MenuLinks = styled.div`
-  position: left;
 `;
 
 const ButtonsContainer = styled.div`
@@ -149,6 +187,21 @@ const LogoutButton = styled.button`
   cursor: pointer;
 `;
 
+const MenuLinks = styled.div`
+  position: fixed;
+  top: ${({ headerHeight }) => headerHeight}px;
+  left: 0;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  width: 100%;
+  z-index: 999;
+`;
+
 const MenuList = styled.ul`
   list-style: none;
   display: ${({ show }) => (show ? 'flex' : 'none')};
@@ -159,10 +212,9 @@ const MenuList = styled.ul`
   padding: 0;
   background-color: #000; /* Background color for the opened menu */
   position: absolute;
-  top: 60px;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
 `;
 
 const MenuListItem = styled.li`

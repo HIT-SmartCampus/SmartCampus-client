@@ -18,18 +18,19 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: 89vh;
   padding: 2rem;
 `;
 
 const Title = styled.h2`
   font-size: 3rem;
   margin-bottom: 2rem;
+  display: start;
   animation: ${fadeInUp} 1s ease;
 `;
 
 const FormContainer = styled.form`
-  display: flex;
+  display: start;
   flex-direction: column;
   width: 300px;
   margin: 0 auto;
@@ -37,6 +38,7 @@ const FormContainer = styled.form`
 `;
 
 const FormField = styled.div`
+
   margin-bottom: 1.5rem;
 `;
 
@@ -52,6 +54,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+
   background-color: #0066ff;
   color: white;
   padding: 0.8rem;
@@ -64,16 +67,6 @@ const Button = styled.button`
   &:hover {
     background-color: #000;
   }
-`;
-
-const LoginLink = styled.p`
-  font-size: 1rem;
-  margin-top: 1rem;
-`;
-
-const LinkText = styled(Link)`
-  color: #4CAF50;
-  text-decoration: none;
 `;
 
 const Signup = () => {
