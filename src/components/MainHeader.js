@@ -4,22 +4,39 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
+import axios from 'axios';
+
 
 const MainHeader = () => {
-  const [showMenu, setShowMenu] = useState(false);
+ const [showMenu, setShowMenu] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const customNavBarRef = useRef();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
   };
 
-  const isLoggedIn = localStorage.getItem('@token');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData((prevLoginData) => ({
+      ...prevLoginData,
+      [name]: value,
+    }));
+  };
 
+  
   const handleLogout = () => {
-    // Implement your logout logic here
-    // For example, remove the token from local storage and redirect to the homepage
     localStorage.removeItem('@token');
+    setIsLoggedIn(false);
+    setUserData(null);
     window.location.href = '/';
   };
 
@@ -45,7 +62,45 @@ const MainHeader = () => {
     if (headerElement) {
       setHeaderHeight(headerElement.offsetHeight);
     }
-  }, []);
+  // Check if the user is logged in based on the presence of the token
+  const token = localStorage.getItem('@token');
+  if (token) {
+    try {
+      const decodedToken = jwt.verify(token, '1234');
+      setIsLoggedIn(true);
+      setUserData(decodedToken);
+      console.log(token)
+    } catch (error) {
+      console.error('Error while verifying token:', error);
+      setIsLoggedIn(false);
+      setUserData(null);
+    }
+  } else {
+    setIsLoggedIn(false);
+    setUserData(null);
+  }
+}, []);
+  
+const handleLogin = () => {
+  const { email, password } = loginData;
+
+  axios
+    .post('/login', { email, password }) 
+    .then((response) => {
+      const user = response.data.user
+      // Save the token in local storage
+      localStorage.setItem('@token', response.data.token);
+      setIsLoggedIn(true);
+      localStorage.setItem('@user', user)
+      setUserData(user);
+    })
+    .catch((error) => {
+      console.error('Error while logging in:', error);
+      // Optionally, you can show an error message to the user
+    });
+    
+};
+
 
   return (
     <Container>
@@ -58,14 +113,26 @@ const MainHeader = () => {
         </Title>
         {!isLoggedIn ? (
           <ButtonsContainer>
-            <LoginInput type="text" placeholder="Username" />
-            <LoginInput type="password" placeholder="Password" />
-            <LoginButton>Sign In</LoginButton>
+            <LoginInput
+              type="email" 
+              name="email"
+              placeholder="Email"
+              value={loginData.email}
+              onChange={handleChange}
+            />
+            <LoginInput
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={loginData.password}
+              onChange={handleChange}
+            />
+            <LoginButton onClick={handleLogin}>Sign In</LoginButton>
             <Link to="/signup">Create a new user</Link>
           </ButtonsContainer>
         ) : (
           <UserContainer>
-            <Username>Welcome, {JSON.parse(localStorage.getItem('@user')).firstName}</Username>
+            <Username> {userData.firstName}</Username>
             <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
           </UserContainer>
         )}

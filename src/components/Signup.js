@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'; // Import Axios
 import styled, { keyframes } from 'styled-components';
 
 const fadeInUp = keyframes`
@@ -86,9 +87,15 @@ const Signup = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Implement your signup logic here
-    // For example, send the form data to the server for registration
+    axios.post('/register', formData) // Send the form data to the backend
+      .then((response) => {
+        console.log('User registered successfully:', response.data);
+        // Optionally, you can redirect the user to a success page or do other actions
+      })
+      .catch((error) => {
+        console.error('Error while registering:', error);
+        // Optionally, you can show an error message to the user
+      });
   };
 
   return (
