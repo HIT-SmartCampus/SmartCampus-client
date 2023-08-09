@@ -54,4 +54,28 @@ router.post('/login', async (request, response) => {
       response.status(500).json({ error: 'Internal server error' });
     });
 });
+
+const verifyToken = (req, res, next) => {
+  const token = req.header('Authorization');
+
+  if (!token) {
+    return res.status(401).json({ message: 'Access denied. No token provided.' });
+  }
+
+  try {
+    const decodedToken = jwt.verify(token, "1234");
+    req.user = decodedToken;
+    next();
+  } catch (error) {
+    return res.status(403).json({ message: 'Invalid token.' });
+  }
+};
+
+
+router.get('/api/getUserData', verifyToken, (req, res) => {
+  const userData = req.user;
+  res.json({ userData });
+});
+
+
 module.exports = router

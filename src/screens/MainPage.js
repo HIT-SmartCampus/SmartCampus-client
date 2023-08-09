@@ -20,8 +20,3 @@ const MainContainer = styled.div`
   margin-top: 50px;
   text-align: center;
 `
-
-const Separator = styled.div`
-  margin-top: 50px;
-  text-align: center;
-`

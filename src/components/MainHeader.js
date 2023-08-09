@@ -2,14 +2,13 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { FaBars } from 'react-icons/fa';
+import { FaBars ,FaUserShield } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-
 const MainHeader = () => {
- const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const customNavBarRef = useRef();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,11 +31,12 @@ const MainHeader = () => {
     }));
   };
 
-  
   const handleLogout = () => {
     localStorage.removeItem('@token');
+    localStorage.removeItem('@user'); // Remove user data
     setIsLoggedIn(false);
-    setUserData(null);
+    setIsAdmin(false)
+    setUserData(null)
     window.location.href = '/';
   };
 
@@ -51,56 +51,42 @@ const MainHeader = () => {
   };
 
   useEffect(() => {
+    const headerElement = customNavBarRef.current;
+    if (headerElement) {
+      setHeaderHeight(headerElement.offsetHeight);
+    }
+    // Check Local Storage for login data
+    const storedToken = localStorage.getItem('@token');
+    const storedUser = JSON.parse(localStorage.getItem('@user'));
+    if (storedToken && storedUser) {
+      setIsLoggedIn(true);
+      setUserData(storedUser);
+      setIsAdmin(storedUser.role === "Admin" || false);
+    }
+
     document.addEventListener('click', handleOutsideMenuClick);
     return () => {
       document.removeEventListener('click', handleOutsideMenuClick);
     };
   }, []);
-
-  useEffect(() => {
-    const headerElement = customNavBarRef.current;
-    if (headerElement) {
-      setHeaderHeight(headerElement.offsetHeight);
-    }
-  // Check if the user is logged in based on the presence of the token
-  const token = localStorage.getItem('@token');
-  if (token) {
-    try {
-      const decodedToken = jwt.verify(token, '1234');
-      setIsLoggedIn(true);
-      setUserData(decodedToken);
-      console.log(token)
-    } catch (error) {
-      console.error('Error while verifying token:', error);
-      setIsLoggedIn(false);
-      setUserData(null);
-    }
-  } else {
-    setIsLoggedIn(false);
-    setUserData(null);
-  }
-}, []);
-  
-const handleLogin = () => {
-  const { email, password } = loginData;
-
-  axios
-    .post('/login', { email, password }) 
-    .then((response) => {
-      const user = response.data.user
-      // Save the token in local storage
-      localStorage.setItem('@token', response.data.token);
-      setIsLoggedIn(true);
-      localStorage.setItem('@user', user)
-      setUserData(user);
-    })
-    .catch((error) => {
-      console.error('Error while logging in:', error);
-      // Optionally, you can show an error message to the user
-    });
+  const handleLogin = () => {
+    const { email, password } = loginData;
     
-};
-
+    axios
+      .post('/login', { email, password }) 
+      .then((response) => {
+        const user = response.data.user;
+        // Save the token and user data in local storage
+        localStorage.setItem('@token', response.data.token);
+        localStorage.setItem('@user', JSON.stringify(user));
+        setIsLoggedIn(true);
+        setUserData(user);
+      })
+      .catch((error) => {
+        console.error('Error while logging in:', error);
+        // Optionally, you can show an error message to the user
+      });
+  };
 
   return (
     <Container>
@@ -111,7 +97,7 @@ const handleLogin = () => {
         <Title>
           <Link to="/">Smart Campus</Link>
         </Title>
-        {!isLoggedIn ? (
+        {!isLoggedIn   ? (
           <ButtonsContainer>
             <LoginInput
               type="email" 
@@ -132,6 +118,7 @@ const handleLogin = () => {
           </ButtonsContainer>
         ) : (
           <UserContainer>
+            {isAdmin && <AdminIcon><FaUserShield /></AdminIcon>}
             <Username> {userData.firstName}</Username>
             <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
           </UserContainer>
@@ -175,6 +162,20 @@ const Container = styled.header`
   background-color: #000;
   color: #fff;
   padding: 10px;
+`;
+
+const AdminIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; /* Set the width and height to create a circle */
+  height: 20px;
+  background-color: #f00;
+  border-radius: 50%; /* Make it a circle */
+  font-size: 10px; /* Adjust the font size to fit within the circle */
+  font-weight: bold;
+  color: #fff;
+  margin-left: 5px;
 `;
 
 const CustomNavBar = styled.nav`

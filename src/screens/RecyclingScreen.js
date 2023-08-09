@@ -23,11 +23,6 @@ const fadeInUp = keyframes`
   }
 `;
 
-const Title = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  animation: ${fadeInUp} 1s ease;
-`;
 
 const PageTitle = styled.h1`
   font-size: 4rem;
@@ -37,16 +32,6 @@ const PageTitle = styled.h1`
   animation: ${fadeInUp} 1s ease;
 `;
 
-const Description = styled.p`
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  max-width: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Align the image to the right */
-  animation: ${fadeInUp} 1s ease;
-`;
 
 const AnimationContainer = styled.div`
   display: flex;
